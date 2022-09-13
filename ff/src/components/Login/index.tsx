@@ -1,11 +1,32 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Footer, FooterBox, Header, InputBox, KeyInput, KeyText, SubmitBox, Wrapper} from "./Login.styles";
+import {collection, onSnapshot, orderBy, query} from "firebase/firestore";
+import {db} from "../../firebase";
 
 const Login = () => {
     const [key, setKey] = useState('');
+    let obj:any;
+    const [users, setUsers] = useState([{id: "" , data: obj}])
+
+    useEffect(() => {
+        const userColRef = query(collection(db, 'users'), orderBy('created', 'desc'))
+        onSnapshot(userColRef, (snapshot) => {
+            setUsers(snapshot.docs.map(doc => ({
+                id: doc.id,
+                data: doc.data()
+            })))
+        })
+    },[])
     const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.currentTarget.value;
         setKey(value);
+    };
+
+    const handleSubmit = () => {
+        const found = users.find(element => element.data.key === key);
+        if(found!==undefined){
+            console.log("Logged");
+        }
     };
     return (
         <Wrapper>
@@ -17,7 +38,7 @@ const Login = () => {
                 <KeyInput  type="password"
                            value={key}
                            onChange={handleInput}/>
-                <SubmitBox><button>Submit and Agree</button></SubmitBox>
+                <SubmitBox><button onClick={handleSubmit}>Submit and Agree</button></SubmitBox>
             </InputBox>
             <FooterBox>
                 <Footer>

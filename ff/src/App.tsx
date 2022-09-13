@@ -6,6 +6,7 @@ import Nivel0 from "./components/Nivel0/Nivel0";
 import { GlobalStyle } from "./GlobalStyle";
 import GlobalFonts from "./fonts/fonts";
 import LandingPage from "./components/LandingPage";
+import UserManager from "./pages/UserManager";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/nivel0" element={<Nivel0 />} />
+        <Route path="/useradmin" element={ <UserManager/>}/>
       </Routes>
       <GlobalStyle />
       <GlobalFonts />

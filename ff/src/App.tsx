@@ -5,6 +5,7 @@ import Login from "./components/Login";
 import {GlobalStyle} from "./GlobalStyle";
 import GlobalFonts from './fonts/fonts';
 import LandingPage from "./components/LandingPage";
+import UserManager from "./pages/UserManager";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Routes>
               <Route path="/" element={<LandingPage/>}/>
               <Route path="/login" element={<Login/>}/>
+              <Route path="/useradmin" element={ <UserManager/>}/>
           </Routes>
           <GlobalStyle/>
           <GlobalFonts />

@@ -1,6 +1,18 @@
 import styled from "styled-components";
 import LC from "../../images/loading.svg"
 
+interface propsWrapper {
+    start: number;
+}
+
+export const Wrapper = styled.div<propsWrapper>`
+  display: flex;
+  position: absolute;
+  top: ${props => (props.start)}vh;
+  left:${props => (props.start)}vh;
+  width: 80vw;
+  height: 40vh;
+`;
 
 export const Window = styled.div`
   display: flex;
@@ -12,9 +24,21 @@ export const Window = styled.div`
   background-color: black;
   border: gray solid 1px;
   border-top: gray solid 5px;
-  color: greenyellow;
-  font-family: 'Courier';
   overflow-y: auto;
+  margin: 7vw;
+`;
+export const LargeWindow = styled.div`
+  display: flex;
+  width: 45vw;
+  height: 40vh;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  background-color: black;
+  border: gray solid 1px;
+  border-top: gray solid 5px;
+  overflow-y: auto;
+  margin: 1vw;
 `;
 
 export const Spinner = styled.div`

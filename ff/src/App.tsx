@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Landing from "./Components/Landing/Landing";
+import Landing from "./Components/Landing/MatrixRain";
+import GlobalFonts from "./fonts/fonts";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
       </Routes>
+      <GlobalFonts />
     </Router>
   );
 }

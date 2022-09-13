@@ -1,6 +1,7 @@
 import React from 'react';
 import {Route, BrowserRouter as Router, Routes} from "react-router-dom";
 import Login from "./components/Login";
+import Landing from "./components/Landing/MatrixRain";
 import {GlobalStyle} from "./GlobalStyle";
 import GlobalFonts from './fonts/fonts';
 import LandingPage from "./components/LandingPage";

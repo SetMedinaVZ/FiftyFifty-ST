@@ -1,7 +1,12 @@
-import React from "react";
-import {Footer, FooterBox, Header, InputBox, KeyInput, KeyText, Wrapper} from "./Login.styles";
+import React, {useState} from "react";
+import {Footer, FooterBox, Header, InputBox, KeyInput, KeyText, SubmitBox, Wrapper} from "./Login.styles";
 
 const Login = () => {
+    const [key, setKey] = useState('');
+    const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.currentTarget.value;
+        setKey(value);
+    };
     return (
         <Wrapper>
             <Header>ff</Header>
@@ -9,7 +14,10 @@ const Login = () => {
                 <KeyText>
                     PUAMZB GWCZ RMG
                 </KeyText>
-                <KeyInput/>
+                <KeyInput  type="password"
+                           value={key}
+                           onChange={handleInput}/>
+                <SubmitBox><button>Submit and Agree</button></SubmitBox>
             </InputBox>
             <FooterBox>
                 <Footer>

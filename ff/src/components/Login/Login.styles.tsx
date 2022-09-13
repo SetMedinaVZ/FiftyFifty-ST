@@ -48,6 +48,28 @@ export const InputBox = styled.div`
   font-family: 'Courier';
 `;
 
+export const SubmitBox = styled.div`
+  display: flex;
+  width: 100vw;
+  height: 10vh;
+  justify-content: center;
+  button{
+    display: flex;
+    width: 20vw;
+    height: 5vh;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.2vw;
+    margin-top: 10vh;
+    background-color: #111111;
+    color: azure;
+    border: solid 2px azure;
+    &:hover{
+      background-color: #222222;
+    }
+  }
+`;
+
 export const FooterBox = styled.div`
   display: flex;
   flex-wrap: wrap;

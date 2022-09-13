@@ -11,6 +11,8 @@ export const Main = styled.main`
   background-repeat: no-repeat;
   justify-content: space-between;
   align-items: center;
+  background-color: black;
+  flex-wrap: wrap;
 `;
 
 export const Container = styled.div`
@@ -19,6 +21,7 @@ export const Container = styled.div`
   align-items: center;
   width: 90vw;
   height: 90vh;
+  margin: 5vh 0;
 `;
 
 export const HalfContainer = styled.div`
@@ -27,7 +30,7 @@ export const HalfContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: inherit;
-  height: 80vh;
+  max-height: 70vh;
   font-family: "Courier";
 `;
 

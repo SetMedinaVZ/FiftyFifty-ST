@@ -1,66 +1,100 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Main, Container, HalfContainer, Text, Button } from "./Nivel0.styles";
 import { GlitchImage } from "react-glitch-image";
-import TransparentBG from "../../images/TransparentBG.svg";
+import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import img1 from "../../images/weirdImages/img1.jpeg";
 import img2 from "../../images/weirdImages/img2.jpeg";
-import img3 from "../../images/weirdImages/img3.png";
-import img4 from "../../images/weirdImages/img4.png";
 import img5 from "../../images/weirdImages/img5.jpeg";
 import img6 from "../../images/weirdImages/img6.jpeg";
-import img7 from "../../images/weirdImages/img7.jpeg";
-import img8 from "../../images/weirdImages/img8.jpeg";
 import img9 from "../../images/weirdImages/img9.jpeg";
-import img10 from "../../images/weirdImages/img10.jpeg";
-import img11 from "../../images/weirdImages/img11.png";
 
 const Nivel0 = () => {
-  const imgArray = [
-    img1,
-    img2,
-    img3,
-    img4,
-    img5,
-    img6,
-    img7,
-    img8,
-    img9,
-    img10,
-    img11,
-  ];
-
+  const [count, setCount] = useState(0);
+  const [clicked, setClick] = useState(0);
+  const navigate = useNavigate();
   const questions = [
-    "RU willing to MJWF ZPVS MJGF BU UIF GVMMFTU?",
-    "Would u like to know how u will JÑK ?",
-    "Do you ILROLCL OT NVK?",
-    "Would u like to know the QPRZHEEBI?",
-    "If u found a OCTIU JMPUÑ would u save it?",
+    {
+      question:
+        "RU willing to MJWF ZPVS MJGF BU UIF GVMMFTU?" /*Yes => +1 No => -1*/,
+      image: img1,
+    },
+    {
+      question: "Would u like to know how u will JÑK ?" /*Yes => -1 No => +1*/,
+      image: img2,
+    },
+    {
+      question: "Do you ILROLCL OT NVK?" /*Yes =>  No => */,
+      image: img5,
+    },
+    {
+      question: "Would u like to know the QPRZHEEBI?" /*Yes => -1 No => +1*/,
+      image: img6,
+    },
+    {
+      question:
+        "If u found a OCTIU JMPUÑ would u save it?" /*Yes => +1  No => -1 */,
+      image: img9,
+    },
   ];
 
-  const genRandomNumber = (min: number, max: number) => {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+  const handleYes = (e: React.MouseEvent<HTMLButtonElement>,question: string) => {
+    if (question === questions[0].question ||question === questions[4].question) {
+      setCount(count + 1);
+    } else {
+      setCount(count - 1);
+    }
+
+    setClick(clicked + 1);
+
   };
+
+  const handleNo = (e: React.MouseEvent<HTMLButtonElement>,question: string) => {
+    if (question === questions[0].question || question === questions[4].question) {
+      setCount(count - 1);
+    } else {
+      setCount(count + 1);
+    }
+    setClick(clicked + 1);
+  };
+
+  if(clicked === 5){
+    if(count > 0){
+      navigate("/nivel1a")
+    }
+    else{
+      navigate("/nivel1b")
+    }
+  }
 
   return (
     <Main>
-      <Container>
-        <HalfContainer>
-          <GlitchImage
-            image={imgArray[genRandomNumber(0, 10)]}
-            width={"40vw"}
-            animationInterval={2500}
-            splitSize={5}
-          />
-        </HalfContainer>
+      <Parallax pages={5}>
+        {questions.map((questions: any, index) => (
+          <ParallaxLayer key={index} offset={index}>
+            <Container>
+              <HalfContainer>
+                <GlitchImage
+                  image={questions.image}
+                  width={"30vw"}
+                  animationInterval={2500}
+                  splitSize={5}
+                />
+              </HalfContainer>
 
-        <HalfContainer>
-          <Text>{">> " + questions[genRandomNumber(0, 4)]}</Text>
-          <Button> {">> Yes"} </Button>
-          <Button> {">> No"} </Button>
-        </HalfContainer>
-      </Container>
+              <HalfContainer>
+                <Text>{">> " + questions.question}</Text>
+                <Button onClick={(e) => handleYes(e, questions.question)}>
+                  {">> Yes"}
+                </Button>
+                <Button onClick={(e) => handleNo(e, questions.question)}>
+                  {">> No"}
+                </Button>
+              </HalfContainer>
+            </Container>
+          </ParallaxLayer>
+        ))}
+      </Parallax>
     </Main>
   );
 };

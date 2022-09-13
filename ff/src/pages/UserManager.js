@@ -5,7 +5,6 @@ import {db} from '../firebase'
 
 
 const UserManager = () =>{
-    const [openAddModal, setOpenAddModal] = useState(false)
     const [users, setUsers] = useState([])
     const [key, setKey] = useState('')
 

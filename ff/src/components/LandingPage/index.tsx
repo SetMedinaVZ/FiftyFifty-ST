@@ -3,8 +3,15 @@ import Background from "../Landing/MatrixRain";
 import {Parallax, ParallaxLayer} from "@react-spring/parallax";
 import {LargeWindow, Spinner, Window, Wrapper} from "./LandingPage.styles";
 import TextPrinter from "../TextPrinter/TextPrinter";
+import {useNavigate} from "react-router-dom";
 
 const LandingPage = () => {
+    const navigate = useNavigate();
+    document.addEventListener('keydown', function(event) {
+        if (event.key == 'f') {
+            navigate("/login")
+        }
+    }, true);
     return (
         <Parallax pages={2}>
             <ParallaxLayer>

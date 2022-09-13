@@ -60,10 +60,10 @@ const Nivel0 = () => {
 
   if(clicked === 5){
     if(count > 0){
-      navigate("/nivel1a")
+      navigate("/level1a")
     }
     else{
-      navigate("/nivel1b")
+      navigate("/level1b")
     }
   }
 

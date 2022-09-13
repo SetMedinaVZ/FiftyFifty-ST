@@ -2,8 +2,11 @@ import React, {useEffect, useState} from "react";
 import {Footer, FooterBox, Header, InputBox, KeyInput, KeyText, SubmitBox, Wrapper} from "./Login.styles";
 import {collection, onSnapshot, orderBy, query} from "firebase/firestore";
 import {db} from "../../firebase";
+import {useNavigate} from "react-router-dom";
+
 
 const Login = () => {
+    const navigate = useNavigate();
     const [key, setKey] = useState('');
     let obj:any;
     const [users, setUsers] = useState([{id: "" , data: obj}])
@@ -25,7 +28,7 @@ const Login = () => {
     const handleSubmit = () => {
         const found = users.find(element => element.data.key === key);
         if(found!==undefined){
-            console.log("Logged");
+            navigate("/level0")
         }
     };
     return (

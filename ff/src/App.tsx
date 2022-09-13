@@ -2,6 +2,7 @@ import React from 'react';
 import {Route, BrowserRouter as Router, Routes} from "react-router-dom";
 import Login from "./Components/Login";
 import Landing from "./Components/Landing/MatrixRain";
+import TextPrinter from './Components/TextPrinter/TextPrinter';
 import {GlobalStyle} from "./GlobalStyle";
 import GlobalFonts from './fonts/fonts';
 

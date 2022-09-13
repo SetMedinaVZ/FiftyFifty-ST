@@ -29,6 +29,7 @@ export const KeyInput = styled.input`
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   background-color: #111111;
   border: gray 1px solid;
   color: azure;

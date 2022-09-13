@@ -24,7 +24,6 @@ export const Window = styled.div`
   background-color: black;
   border: gray solid 1px;
   border-top: gray solid 5px;
-  overflow-y: auto;
   margin: 7vw;
 `;
 export const LargeWindow = styled.div`
@@ -37,7 +36,7 @@ export const LargeWindow = styled.div`
   background-color: black;
   border: gray solid 1px;
   border-top: gray solid 5px;
-  overflow-y: auto;
+  overflow-y: hidden;
   margin: 1vw;
 `;
 

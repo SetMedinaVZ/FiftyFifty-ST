@@ -14,7 +14,7 @@ export const Window = styled.div`
   border-top: gray solid 5px;
   color: greenyellow;
   font-family: 'Courier';
-  overflow-y: auto;
+  overflow: hidden;
 `;
 
 export const Spinner = styled.div`

@@ -5,7 +5,7 @@ import { hacking_script } from "./hackScript";
 
 const TextPrinter = () => {
   return (
-    <Container>
+    <Container id="data">
       <Typewriter
         options={{
           strings: [hacking_script],

@@ -10,6 +10,7 @@ import UserManager from "./pages/UserManager";
 import Nivel1A from "./components/Nivel1A";
 import Nivel1B from "./components/Nivel1B";
 import AVideosManager from "./pages/AVideosManager";
+import BVideosManager from "./pages/BVideosManager";
 
 function App() {
     return (
@@ -22,7 +23,7 @@ function App() {
                 <Route path="/level1a" element={<Nivel1A/>}/>
                 <Route path="/useradmin" element={<UserManager/>}/>
                 <Route path="/avideoadmin" element={<AVideosManager/>}/>
-
+                <Route path="/bvideoadmin" element={<BVideosManager/>}/>
             </Routes>
             <GlobalStyle/>
             <GlobalFonts/>

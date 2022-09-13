@@ -2,6 +2,7 @@ import React from "react";
 import Background from "../Landing/MatrixRain";
 import {Parallax, ParallaxLayer} from "@react-spring/parallax";
 import {Spinner, Window} from "./LandingPage.styles";
+import TextPrinter from "../TextPrinter/TextPrinter";
 
 const LandingPage = () => {
   return(
@@ -11,7 +12,7 @@ const LandingPage = () => {
             </ParallaxLayer>
             <ParallaxLayer>
                 <Window>
-                    dsaljkndsknadnnfkdls
+                    <TextPrinter/>
                 </Window>
                 <Window>
                     <Spinner/>

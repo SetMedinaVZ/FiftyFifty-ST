@@ -7,11 +7,14 @@ export const Window = styled.div`
   width: 20vw;
   height: 30vh;
   flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
   background-color: black;
   border: gray solid 1px;
   border-top: gray solid 5px;
   color: greenyellow;
   font-family: 'Courier';
+  overflow-y: auto;
 `;
 
 export const Spinner = styled.div`

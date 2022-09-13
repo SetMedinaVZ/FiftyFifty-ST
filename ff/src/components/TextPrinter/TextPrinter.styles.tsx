@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  word-wrap: break-word;
-  color: white;
+  display: flex;
+  color: #00FF0A;
   font-family: "Courier";
-  width: 100%;
-  height: 100%;
+  width: inherit;
+  height: inherit;
+  overflow-y: inherit;
 `;

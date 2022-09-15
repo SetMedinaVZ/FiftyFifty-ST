@@ -1,10 +1,14 @@
 import React, {useEffect, useState} from "react";
-import {Video} from "./Nivel1A.styles";
+import {LargeWindow, Video, Wrapper} from "./Nivel1A.styles";
 import {collection, onSnapshot, orderBy, query} from "firebase/firestore";
 import {db} from "../../firebase";
+import {useNavigate} from "react-router-dom";
 
 const Nivel1A = () => {
     let obj:any;
+    const navigate = useNavigate();
+    const [command, setCommand] = useState("")
+    const [index, setIndex] = useState(0)
     const [aVideos, setAVideos] = useState([{id: "" , data: obj}])
 
     useEffect(() => {
@@ -21,10 +25,39 @@ const Nivel1A = () => {
             <div>Cargando...</div>
         )
     }
+    const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.currentTarget.value;
+        setCommand(value);
+    };
+    if(command === "sudo ff change video next"){
+        setCommand("")
+        if(index+1 > aVideos.length-1){
+            setIndex(0)
+        }
+        else{
+            setIndex(index+1)
+        }
+    }
+    if(command === "ff"){
+        if(Math.floor(Math.random() * (0 - 1 + 1)) === 1)
+            navigate("/")
+        else
+            navigate("/level2a")
+    }
     return(
-        <Video
-            src={aVideos[0].data.link+"&autoplay=1&mute=1"}
-        ></Video>
+        <Wrapper>
+            {aVideos[index].data.link !== undefined ?
+                <Video
+                    src={aVideos[index].data.link + "&autoplay=1&mute=1"}
+                ></Video>
+                :
+                <div>Cargando</div>
+            }
+            <LargeWindow>
+                {">>"}
+                <input maxLength={25} onChange={handleInput} value={command}/>
+            </LargeWindow>
+        </Wrapper>
     )
 }
 export default Nivel1A;

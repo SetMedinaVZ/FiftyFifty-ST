@@ -26,6 +26,7 @@ export const Window = styled.div`
   border-top: gray solid 5px;
   margin: 7vw;
 `;
+
 export const LargeWindow = styled.div`
   display: flex;
   width: 45vw;

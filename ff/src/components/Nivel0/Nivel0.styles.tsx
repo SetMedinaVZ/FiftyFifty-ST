@@ -9,18 +9,20 @@ export const Main = styled.main`
   background-image: url(${Jesus});
   background-size: cover;
   background-repeat: no-repeat;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   background-color: black;
   flex-wrap: wrap;
+  overflow: hidden;
 `;
 
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90vw;
-  height: 90vh;
+  width: 100vw;
+  height: 100vh;
+  height: 100vh;
   margin: 5vh 0;
 `;
 
@@ -39,13 +41,9 @@ export const Text = styled.p`
   font-size: 3rem;
 `;
 
-export const Button = styled.button`
+
+export const Button = styled.div`
   color: white;
   font-size: 3rem;
   background-color: transparent;
-
-  &:hover {
-    cursor: pointer;
-    color: red;
-  }
 `;
